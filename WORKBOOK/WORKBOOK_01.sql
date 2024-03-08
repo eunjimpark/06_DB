@@ -141,10 +141,12 @@ SELECT CEIL( (SYSDATE - TO_DATE('1990-01-16', 'YYYY-MM-DD')) / 365 )
 FROM DUAL;
 
 
-SELECT EMP_ID AS 사번,
-       EMP_NAME AS "사원 이름",
-       SALARY *12 "연봉(급여*12)"
-FROM EMPLOYEE;
+SELECT EMP_ID 사번,
+       EMP_NAME 사원이름 ,
+       SALARY 연봉
+FROM EMPLOYEE
+WHERE emp_id = '208'
+ORDER BY 사원이름;
 
 
 
@@ -601,8 +603,12 @@ ORDER BY DEPT_CODE, JOB_CODE, EMP_NAME DESC;
 
 
 
-
-
+SELECT 아이디
+FROM TB_MEMBER
+WHERE GRADE=(SELECT GRADE_CODE
+             FROM TB_grade
+             WHERE GRADE_NAME = '일반회원')
+AND AREA_CODE != '02';
 
 
 
